@@ -19,6 +19,7 @@ WORKDIR /revealjs
 COPY index.html /revealjs/
 COPY css/ /revealjs/css/
 COPY plugin/ /revealjs/plugin/
+COPY images/ /revealjs/images/
 COPY md/ /revealjs/md/
 
 EXPOSE 8000
