@@ -1,0 +1,13 @@
+---
+- name: Check filter module
+  hosts: all
+
+  tasks:
+    - name: Get a couple of facts from the system
+      debug:
+        var: "{{ item }}"
+      with_items:
+        - "ansible_ssh_user"
+        - "ansible_distribution"
+        - "ansible_distribution_release"
+
