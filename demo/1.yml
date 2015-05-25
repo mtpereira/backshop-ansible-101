@@ -1,9 +1,10 @@
 ---
 - name: Check filter module
   hosts: all
+  remote_user: vagrant
 
   tasks:
-    - name: Get a couple of facts from the system
+    - name: Get a couple of facts from the host
       debug:
         var: "{{ item }}"
       with_items:
