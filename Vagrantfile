@@ -3,15 +3,13 @@
 
 boxes = {
   "web1" => {
-              :box => "opscode-debian-7.8",
-              :url => "https://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_debian-7.8_chef-provisionerless.box",
+              :box => "ubuntu/trusty64",
               :ip  => '10.0.21.2',
               :cpu => "100",
               :ram => "128"
             },
   "web2" => {
-              :box => "opscode-ubuntu-14.04",
-              :url => "https://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box",
+              :box => "ubuntu/trusty64",
               :ip  => '10.0.21.3',
               :cpu => "100",
               :ram => "128"
