@@ -157,11 +157,13 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 ## Playbooks
 ### Tasks
 
-*Handlers* are a special type of Tasks:
+**Handlers** are a special type of Tasks:
 
   - Triggered by other tasks, using `notify`
-  - Only runs once, regardless of how many times it was triggered
+  - A handler only runs once, regardless of how many times it was triggered
   - Executed at the end of the Play
+
+---
 
 ## Playbooks
 ### Tasks - `2/playbook.yml`
@@ -177,6 +179,16 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 ### Includes - `3/playbook.yml`
 
   - `include` enables reusing tasks and even whole playbooks
+
+---
+
+# Playbooks
+## Variables and Facts
+
+  - Adapt to different hosts or environments
+  - Variables can be set on playbooks
+  - Facts are fetched automatically by Ansible from the host's characteristics
+  - Facts can also be set dynamically, using `set_fact`
 
 ---
 
