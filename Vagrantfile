@@ -18,6 +18,7 @@ boxes = {
 
 Vagrant.configure("2") do |config|
   boxes.each do |box_name, box|
+    config.ssh.insert_key = false
     config.vm.define box_name do |machine|
       machine.vm.box = box[:box]
       machine.vm.box_url = box[:url]

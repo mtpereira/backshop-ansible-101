@@ -38,7 +38,7 @@ There are 2 essencial commands
 
 ## Basic commands
 ### `ansible`
-    $ ansible -i inventory -m setup -a 'filter=ansible_distribution' web1
+    $ ansible -i ../inventory -m setup -a 'filter=ansible_distribution' web1
     10.0.21.2 | success >> {
         "ansible_facts": {
             "ansible_distribution": "Ubuntu"
@@ -50,7 +50,7 @@ There are 2 essencial commands
 
 ## Basic commands
 ### `ansible-playbook`
-    $ ansible-playbook -i inventory playbook.yml
+    $ ansible-playbook -i ../inventory playbook.yml
     PLAY [Check filter module] ****************************************************
 
     GATHERING FACTS ***************************************************************
