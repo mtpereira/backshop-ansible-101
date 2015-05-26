@@ -50,7 +50,7 @@ There are 2 essencial commands
 
 ## Basic commands
 ### `ansible-playbook`
-    $ ansible-playbook -i inventory 1.yml
+    $ ansible-playbook -i inventory playbook.yml
     PLAY [Check filter module] ****************************************************
 
     GATHERING FACTS ***************************************************************
@@ -127,7 +127,7 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 ---
 
 ## Playbooks
-### Plays - `1.yml`
+### Plays - `1/playbook.yml`
 
 	- name: Check filter module
 	  hosts: all
@@ -164,7 +164,7 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
   - Executed at the end of the Play
 
 ## Playbooks
-### Tasks - `2.yml`
+### Tasks - `2/playbook.yml`
 
   - Deploys app on both webservers
   - Idempotency for source code changes
@@ -174,7 +174,7 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 ---
 
 ## Playbooks
-### Includes - `3.yml`
+### Includes - `3/playbook.yml`
 
   - `include` enables reusing tasks and even whole playbooks
 
