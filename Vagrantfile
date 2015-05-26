@@ -6,13 +6,13 @@ boxes = {
               :box => "ubuntu/trusty64",
               :ip  => '10.0.21.2',
               :cpu => "100",
-              :ram => "128"
+              :ram => "256"
             },
   "web2" => {
               :box => "ubuntu/trusty64",
               :ip  => '10.0.21.3',
               :cpu => "100",
-              :ram => "128"
+              :ram => "256"
             },
 }
 
