@@ -4,33 +4,7 @@
   sudo: yes
 
   tasks:
-    - name: Install ruby and build dependencies
-      apt:
-        name: "{{ item }}"
-        update_cache: yes
-        cache_valid_time: 3600
-        state: installed
-      with_items:
-        - ruby2.0
-        - ruby2.0-dev
-        - git
-        - build-essential
-        - libsqlite3-dev
-
-    - name: Update ruby and gem alternatives
-      alternatives:
-        name: "{{ item }}"
-        link: "/usr/bin/{{ item }}"
-        path: "/usr/bin/{{ item }}2.0"
-      with_items:
-        - ruby
-        - gem
-
-    - name: Install bundler
-      gem:
-        name: bundler
-        user_install: no
-        state: present
+    - include: ruby.yml
 
     - name: Add user
       user:
