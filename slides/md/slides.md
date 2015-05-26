@@ -155,9 +155,32 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 ---
 
 ## Playbooks
+### Tasks
+
+*Handlers* are a special type of Tasks:
+
+  - Triggered by other tasks, using `notify`
+  - Only runs once, regardless of how many times it was triggered
+  - Executed at the end of the Play
+
+## Playbooks
 ### Tasks - `2.yml`
 
   - Deploys app on both webservers
   - Idempotency for source code changes
-  - Uses Handlers, which are triggered Tasks
+  - Every value is hardcoded on the Playbook
+  - No way to reuse parts of the Play
 
+---
+
+## Playbooks
+### Includes - `3.yml`
+
+  - `include` enables reusing tasks and even whole playbooks
+
+---
+
+## Playbooks
+### Roles
+
+  - 
