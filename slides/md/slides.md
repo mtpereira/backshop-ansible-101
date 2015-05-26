@@ -2,22 +2,30 @@
 
 <br/>
 ![Linkedcare](images/linkedcare.png)
+<br/>
+Manuel Tiago Pereira
+
+2015-05-27
 
 ---
 
 ## What is Ansible?
-- A configuration management tool with batteries included
-- Simplifies infrastructure provision, configuration and orchestration
-- Decentralized and agent-free
-- Declarative language
+  - A configuration management tool with batteries included
+  - Simplifies infrastructure provision, configuration and orchestration
+  - Decentralized, agentless and push-based
+  - Uses SSH for communication
+  - Declarative language
+  - Human-readable YAML files
 
 ---
 
 ## Why use Ansible?
   - Simple to use and fast to learn
   - Automates tasks in no time
-  - Allows structured and reusable infrastructure description
+  - Structured, reusable and VCS-manageable infrastructure descriptions
+  - Mostly idempotent
   - Great replacement for bash as "infrastructure glue" for sysadmins and alike
+  - 284 modules available and 2620 roles on https://galaxy.ansible.com
 
 ---
 
@@ -28,7 +36,8 @@ There are 2 essencial commands
 
 ---
 
-## `ansible`
+## Basic commands
+### `ansible`
     $ ansible -i inventory -m setup -a 'filter=ansible_distribution' web1
     10.0.21.2 | success >> {
         "ansible_facts": {
@@ -39,7 +48,8 @@ There are 2 essencial commands
 
 ---
 
-## `ansible-playbook`
+## Basic commands
+### `ansible-playbook`
     $ ansible-playbook -i inventory 1.yml
     PLAY [Check filter module] ****************************************************
 
@@ -59,8 +69,95 @@ There are 2 essencial commands
     PLAY RECAP ********************************************************************
     10.0.21.2                  : ok=2    changed=0    unreachable=0    failed=0
 
+---
+
+## Basic commands
+### Notable flags
+
+  - `--check, -C`
+  - `--syntax-check`
+  - `--verbose, -v[vvv]`
+  - `--limit, -l`
+  - `--user, -u`
+  - `--list-hosts`
 
 ---
-<!-- .slide: data-background="#555555" -->
-## A slide with a different background
+
+## Inventories
+
+  - Define your set of hosts
+  - Organize hosts by groups
+  - Define communication settings (IP address, username, etc)
+  - Can be static or dynamic
+
+---
+
+## Inventories
+
+    [web1]
+    10.0.21.2 ansible_ssh_user=vagrant ansible_ssh_private_key_file=../.vagrant/machines/web1/virtualbox/private_key
+    
+    [web2]
+    10.0.21.2 ansible_ssh_user=vagrant ansible_ssh_private_key_file=../.vagrant/machines/web1/virtualbox/private_key
+    
+    [webservers]
+    web1
+    web2
+
+---
+
+## Playbooks
+
+  - "If Ansible modules are the tools in your workshop, playbooks are your design plans." @ http://docs.ansible.com/playbooks.html
+  - An ordered plan of tasks to be executed on several sets of hosts
+  - Composed of *Plays*
+
+---
+
+## Playbooks
+### Plays
+
+Plays describe a sequence of tasks to execute on a set of hosts and are defined by:
+
+  - a `name`
+  - `hosts` where they'll be applied
+  - `remote_user` that'll connect to the hosts
+  - `tasks` and `roles` that will be executed
+
+---
+
+## Playbooks
+### Plays - `1.yml`
+
+	- name: Check filter module
+	  hosts: all
+      remote_user: vagrant
+	
+	  tasks:
+	    - name: Get a couple of facts from the host
+	      debug:
+	        var: "{{ item }}"
+	      with_items:
+	        - "ansible_ssh_user"
+	        - "ansible_distribution"
+	        - "ansible_distribution_release"
+
+---
+
+## Playbooks
+### Tasks
+
+  - The actual building blocks of our Plays
+  - Tasks are calls to modules
+  - Composed of a name, a module, it's parameters and additional options
+  - You can write your own modules and effectively add new possible tasks
+
+---
+
+## Playbooks
+### Tasks - `2.yml`
+
+  - Deploys app on both webservers
+  - Idempotency for source code changes
+  - Uses Handlers, which are triggered Tasks
 
