@@ -151,6 +151,7 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
   - Tasks are calls to modules
   - Composed of a name, a module, it's parameters and additional options
   - You can write your own modules and effectively add new possible tasks
+  - `ansible-doc --list` and `ansible-doc <module>` are your friends!
 
 ---
 
@@ -182,8 +183,8 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 
 ---
 
-# Playbooks
-## Variables and Facts
+## Playbooks
+### Variables and Facts
 
   - Adapt to different hosts or environments
   - Variables can be set on playbooks
