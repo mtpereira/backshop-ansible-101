@@ -4,9 +4,9 @@
   sudo: yes
 
   tasks:
-    - include: ruby.yml
-    - include: deploy.yml
+    - include: tasks/ruby.yml
+    - include: tasks/deploy.yml
 
   handlers:
-    - include: handlers.yml
+    - include: handlers/handlers.yml
 
