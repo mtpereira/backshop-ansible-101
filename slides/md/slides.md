@@ -179,7 +179,7 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 ## Playbooks
 ### Includes - `3/playbook.yml`
 
-  - `include` enables reusing tasks and even whole playbooks
+  - `include` enables reusing tasks, handlers and even whole playbooks
 
 ---
 

@@ -1,0 +1,39 @@
+---
+- name: Add user
+  user:
+    name: web
+    home: /var/www
+    createhome: yes
+    system: yes
+    state: present
+
+- name: Clone repository
+  git:
+    repo: https://github.com/timmillwood/todo_list
+    dest: /var/www/todo
+    version: master
+  sudo_user: web
+  register: source
+  notify: Restart todo app
+
+- name: Bundle install
+  command: bundle install --path vendor/bundle
+  args:
+    chdir: /var/www/todo
+  sudo_user: web
+  when: source.changed
+  notify: Restart todo app
+
+- name: Add init script
+  copy:
+    src: files/todo.conf
+    dest: /etc/init/todo.conf
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Enable service
+  service:
+    name: todo
+    enabled: yes
+

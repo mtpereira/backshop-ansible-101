@@ -1,0 +1,6 @@
+---
+- name: Restart todo app
+      service:
+        name: todo
+        state: restarted
+
