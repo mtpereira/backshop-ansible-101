@@ -1,0 +1,12 @@
+---
+- name: Deploy TODO application
+  hosts: webservers
+  sudo: yes
+
+  tasks:
+    - include: tasks/ruby.yml
+    - include: tasks/deploy.yml
+
+  handlers:
+    - include: handlers/handlers.yml
+

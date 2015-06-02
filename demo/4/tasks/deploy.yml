@@ -1,0 +1,39 @@
+---
+- name: Add user
+  user:
+    name: "{{ app_deploy_user_name }}"
+    home: "{{ app_deploy_user_home }}"
+    createhome: yes
+    system: yes
+    state: present
+
+- name: Clone repository
+  git:
+    repo: "{{ app_deploy_repo }}"
+    dest: "{{ app_deploy_location }}"
+    version: master
+  sudo_user: "{{ app_deploy_user_name }}"
+  register: source
+  notify: Restart todo app
+
+- name: Bundle install
+  command: bundle install --deployment
+  args:
+    chdir: "{{ app_deploy_location }}"
+  sudo_user: "{{ app_deploy_user_name }}"
+  when: source.changed
+  notify: Restart todo app
+
+- name: Add init script
+  template:
+    src: "templates/init.conf.j2"
+    dest: "/etc/init/{{ app_deploy_name }}.conf"
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Enable service
+  service:
+    name: "{{ app_deploy_name }}"
+    enabled: yes
+

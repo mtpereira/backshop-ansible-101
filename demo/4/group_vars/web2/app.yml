@@ -1,0 +1,5 @@
+---
+app_deploy_user_name: app
+app_deploy_user_home: /srv/www
+app_deploy_name: todo_list
+
