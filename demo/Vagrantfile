@@ -3,13 +3,13 @@
 
 boxes = {
   "web1" => {
-              :box => "ubuntu/trusty64",
+              :box => "boxcutter/ubuntu1410",
               :ip  => '10.0.21.2',
               :cpu => "100",
               :ram => "256"
             },
   "web2" => {
-              :box => "ubuntu/trusty64",
+              :box => "boxcutter/ubuntu1410",
               :ip  => '10.0.21.3',
               :cpu => "100",
               :ram => "256"
