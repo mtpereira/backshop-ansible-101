@@ -95,12 +95,12 @@ There are 2 essencial commands
 ## Inventories
 
     [web1]
-    10.0.21.2 ansible_ssh_user=vagrant ansible_ssh_private_key_file=../.vagrant/machines/web1/virtualbox/private_key
-    
+    10.0.21.2 ansible_ssh_user=vagrant ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
+
     [web2]
-    10.0.21.2 ansible_ssh_user=vagrant ansible_ssh_private_key_file=../.vagrant/machines/web1/virtualbox/private_key
-    
-    [webservers]
+    10.0.21.3 ansible_ssh_user=vagrant ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
+
+    [webservers:children]
     web1
     web2
 
