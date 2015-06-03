@@ -1,0 +1,9 @@
+---
+- name: Deploy TODO application
+  hosts: webservers
+  sudo: yes
+
+  roles:
+    - ruby
+    - deploy
+

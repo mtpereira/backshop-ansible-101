@@ -1,0 +1,14 @@
+description "{{ deploy_name }} Application"
+author "nobody"
+
+start on (local-filesystems and net-device-up)
+stop on runlevel [06]
+
+setuid {{ deploy_user_name }}
+
+respawn
+script
+    cd {{ deploy_location }}
+    bundle exec ruby web.rb -p 8080
+end script
+

@@ -1,0 +1,6 @@
+---
+- name: Restart app
+  service:
+    name: "{{ deploy_name }}"
+    state: restarted
+

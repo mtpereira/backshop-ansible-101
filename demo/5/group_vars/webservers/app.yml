@@ -1,0 +1,13 @@
+---
+ruby_package: ruby2.1
+ruby_additional_packages:
+  - git
+  - build-essential
+  - libsqlite3-dev
+
+deploy_user_name: web
+deploy_user_home: /var/www
+deploy_name: todo
+deploy_repo: https://github.com/timmillwood/todo_list
+deploy_location: "{{ deploy_user_home }}/{{ deploy_name }}"
+

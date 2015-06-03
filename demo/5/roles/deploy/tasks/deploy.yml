@@ -1,0 +1,39 @@
+---
+- name: Add user
+  user:
+    name: "{{ deploy_user_name }}"
+    home: "{{ deploy_user_home }}"
+    createhome: yes
+    system: yes
+    state: present
+
+- name: Clone repository
+  git:
+    repo: "{{ deploy_repo }}"
+    dest: "{{ deploy_location }}"
+    version: master
+  sudo_user: "{{ deploy_user_name }}"
+  register: source
+  notify: Restart app
+
+- name: Bundle install
+  command: bundle install --deployment
+  args:
+    chdir: "{{ deploy_location }}"
+  sudo_user: "{{ deploy_user_name }}"
+  when: source.changed
+  notify: Restart app
+
+- name: Add init script
+  template:
+    src: "init.conf.j2"
+    dest: "/etc/init/{{ deploy_name }}.conf"
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Enable service
+  service:
+    name: "{{ deploy_name }}"
+    enabled: yes
+
