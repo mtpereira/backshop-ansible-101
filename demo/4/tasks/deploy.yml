@@ -22,7 +22,7 @@
     chdir: "{{ app_deploy_location }}"
   sudo_user: "{{ app_deploy_user_name }}"
   when: source.changed
-  notify: Restart todo app
+  notify: Restart app
 
 - name: Add init script
   template:
