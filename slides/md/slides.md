@@ -132,7 +132,7 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 	- name: Check filter module
 	  hosts: all
       remote_user: vagrant
-	
+
 	  tasks:
 	    - name: Get a couple of facts from the host
 	      debug:
@@ -187,13 +187,37 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 ### Variables and Facts
 
   - Adapt to different hosts or environments
-  - Variables can be set on playbooks
+  - Variables can be set on playbooks, included files and via command line
   - Facts are fetched automatically by Ansible from the host's characteristics
   - Facts can also be set dynamically, using `set_fact`
 
 ---
 
 ## Playbooks
+### Variables and Facts - `4/playbook.yml`
+
+  - Variables are automatically included from `group_vars/`
+  - Hierarchy on groups defines variables priority
+  - "Namespaces" on vars help us avoiding collisions and identifying associated tasks
+
+---
+
+## Playbooks
 ### Roles
 
-  - 
+  - Abstraction for modelling hosts
+  - Enables reuse and distribution of automations
+  - Use a specific directory structure to organize the elements we've seen so far
+  - Default values for vars on `defaults/`
+  - Internal vars on `vars/`
+
+---
+
+## Playbooks
+### Roles - `5/playbook.yml`
+
+  - 2 roles: `ruby` and `deploy`
+  - Playbook is now much simpler
+  - Now we can copy this roles and use them on other playbooks
+
+
