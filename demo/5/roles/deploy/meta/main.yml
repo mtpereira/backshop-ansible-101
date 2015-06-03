@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Manuel Tiago Pereira
+  description: Deploy a Ruby application.
+  license: BSD
+  min_ansible_version: 1.9
+  platforms:
+  - name: Ubuntu
+    versions:
+    - 14.10
+    - 15.04
+  categories:
+  - development
+dependencies: []
+

@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Manuel Tiago Pereira
+  description: Installs ruby Ubuntu's repositories. Defaults to installing ruby2.0.
+  license: BSD
+  min_ansible_version: 1.9
+  platforms:
+  - name: Ubuntu
+    versions:
+    - 14.10
+    - 15.04
+  categories:
+  - packaging
+  - system
+dependencies: []
+
