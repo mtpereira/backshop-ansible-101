@@ -14,7 +14,7 @@
     version: master
   sudo_user: "{{ app_deploy_user_name }}"
   register: source
-  notify: Restart todo app
+  notify: Restart app
 
 - name: Bundle install
   command: bundle install --deployment
