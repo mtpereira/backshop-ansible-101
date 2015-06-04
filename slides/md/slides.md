@@ -228,7 +228,11 @@ No tasks should be `changed`.
 
 Note:
 Run `ansible-playbook -i ../inventory playbook.yml
-No tasks should be `changed`.
+web2 is tainted and now has 2 processes trying to attach to the same port.
+Cause: We changed our automation process. It's very troublesome to keep track of state.
+Fix: Reprovision.
+`vagrant destroy web2 && vagrant up web2`
+`ansible-playbook -i ../inventory -l web2 playbook.yml`
 
 ---
 
