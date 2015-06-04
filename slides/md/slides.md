@@ -5,7 +5,7 @@
 <br/>
 Manuel Tiago Pereira
 
-2015-05-27
+2015-06-04
 
 ---
 
@@ -248,7 +248,7 @@ No tasks should be `changed`.
 
   - 2 roles: `ruby` and `deploy`
   - Playbook is now much simpler
-  - Now we can copy this roles and use them on other playbooks
+  - Now we can copy these roles and reuse them on other playbooks
 
 Note:
 Run `ansible-playbook -i ../inventory playbook.yml
