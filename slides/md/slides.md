@@ -12,7 +12,7 @@ Manuel Tiago Pereira
 ## What is Ansible?
   - A configuration management tool with batteries included
   - Simplifies infrastructure provision, configuration and orchestration
-  - Decentralized, agentless and push-based
+  - Decentralized, agentless and (mostly) push-based
   - Uses SSH for communication
   - Declarative language
   - Human-readable YAML files
@@ -30,7 +30,7 @@ Manuel Tiago Pereira
 ---
 
 ## Basic commands
-There are 2 essencial commands
+There are 2 essential commands
   - `ansible`
   - `ansible-playbook`
 
@@ -110,7 +110,7 @@ There are 2 essencial commands
 
   - "If Ansible modules are the tools in your workshop, playbooks are your design plans." @ http://docs.ansible.com/playbooks.html
   - An ordered plan of tasks to be executed on several sets of hosts
-  - Composed of *Plays*
+  - Composed of **Plays**
 
 ---
 
@@ -121,7 +121,7 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 
   - a `name`
   - `hosts` where they'll be applied
-  - `remote_user` that'll connect to the hosts
+  - `remote_user` that will connect to the hosts
   - `tasks` and `roles` that will be executed
 
 ---
@@ -197,7 +197,7 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 ### Variables and Facts - `4/playbook.yml`
 
   - Variables are automatically included from `group_vars/`
-  - Hierarchy on groups defines variables priority
+  - Variables priority defined by the groups' hierarchy
   - "Namespaces" on vars help us avoiding collisions and identifying associated tasks
 
 ---
@@ -205,7 +205,7 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 ## Playbooks
 ### Roles
 
-  - Abstraction for modelling hosts
+  - Abstraction for modeling hosts
   - Enables reuse and distribution of automations
   - Use a specific directory structure to organize the elements we've seen so far
   - Default values for vars on `defaults/`
@@ -220,4 +220,8 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
   - Playbook is now much simpler
   - Now we can copy this roles and use them on other playbooks
 
+---
 
+## Key takeaways
+
+  - 
