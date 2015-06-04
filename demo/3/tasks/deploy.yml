@@ -17,7 +17,7 @@
   notify: Restart todo app
 
 - name: Bundle install
-  command: bundle install --path vendor/bundle
+  command: bundle install --deployment
   args:
     chdir: /var/www/todo
   sudo_user: web
