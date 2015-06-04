@@ -1,5 +1,5 @@
 ---
-app_ruby_package: ruby2.1
+app_ruby_package: ruby2.0
 app_ruby_additional_packages:
   - git
   - build-essential
