@@ -12,6 +12,10 @@ Manuel Tiago Pereira
 ## What is Ansible?
   - A configuration management tool with batteries included
   - Simplifies infrastructure provision, configuration and orchestration
+
+---
+
+## What is Ansible?
   - Decentralized, agentless and (mostly) push-based
   - Uses SSH for communication
   - Declarative language
@@ -23,6 +27,10 @@ Manuel Tiago Pereira
   - Simple to use and fast to learn
   - Automates tasks in no time
   - Structured, reusable and VCS-manageable infrastructure descriptions
+
+---
+
+## Why use Ansible?
   - Mostly idempotent
   - Great replacement for bash as "infrastructure glue" for sysadmins and alike
   - 284 modules available and 2620 roles on https://galaxy.ansible.com
@@ -170,7 +178,7 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 ### Tasks - `2/playbook.yml`
 
   - Deploys app on both webservers
-  - Idempotency for source code changes
+  - Idempotence for source code changes
   - Every value is hardcoded on the Playbook
   - No way to reuse parts of the Play
 
@@ -206,7 +214,7 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 ### Roles
 
   - Abstraction for modeling hosts
-  - Enables reuse and distribution of automations
+  - Enables reuse and distribution of automation
   - Use a specific directory structure to organize the elements we've seen so far
   - Default values for vars on `defaults/`
   - Internal vars on `vars/`
@@ -224,4 +232,23 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 
 ## Key takeaways
 
-  - 
+  - Simplifies configuring hosts in a repeatable fashion
+  - It (mostly) solves idempotence
+  - It's oblivious to previous states
+  - Should be paired with immutable infrastructure
+  - Use roles to simplify your playbooks
+  - Reusable and composable `group_vars` structure
+
+---
+
+## Q & A
+
+---
+
+## Useful resources
+
+  - [Official documentation](http://docs.ansible.com)
+  - [Official roles repository](https://galaxy.ansible.com/)
+  - [Quick reference for variables](https://github.com/lorin/ansible-quickref)
+
+
