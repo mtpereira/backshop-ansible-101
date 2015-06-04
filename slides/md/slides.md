@@ -35,12 +35,18 @@ Manuel Tiago Pereira
   - Great replacement for bash as "infrastructure glue" for sysadmins and alike
   - 284 modules available and 2620 roles on https://galaxy.ansible.com
 
+Note:
+Explain idempotence and state
+
 ---
 
 ## Basic commands
 There are 2 essential commands
   - `ansible`
   - `ansible-playbook`
+
+Note:
+There are others, we'll focus on these 2.
 
 ---
 
@@ -98,6 +104,8 @@ There are 2 essential commands
   - Define communication settings (IP address, username, etc)
   - Can be static or dynamic
 
+Note: Explain hierarchies. Explain what we use.
+
 ---
 
 ## Inventories
@@ -150,6 +158,9 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 	        - "ansible_distribution"
 	        - "ansible_distribution_release"
 
+Note:
+Run `ansible-playbook -i ../inventory playbook.yml
+
 ---
 
 ## Playbooks
@@ -182,12 +193,19 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
   - Every value is hardcoded on the Playbook
   - No way to reuse parts of the Play
 
+Note:
+Run `ansible-playbook -i ../inventory playbook.yml
+
 ---
 
 ## Playbooks
 ### Includes - `3/playbook.yml`
 
   - `include` enables reusing tasks, handlers and even whole playbooks
+
+Note:
+Run `ansible-playbook -i ../inventory playbook.yml
+No tasks should be `changed`.
 
 ---
 
@@ -207,6 +225,10 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
   - Variables are automatically included from `group_vars/`
   - Variables priority defined by the groups' hierarchy
   - "Namespaces" on vars help us avoiding collisions and identifying associated tasks
+
+Note:
+Run `ansible-playbook -i ../inventory playbook.yml
+No tasks should be `changed`.
 
 ---
 
@@ -228,6 +250,9 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
   - Playbook is now much simpler
   - Now we can copy this roles and use them on other playbooks
 
+Note:
+Run `ansible-playbook -i ../inventory playbook.yml
+
 ---
 
 ## Key takeaways
@@ -242,6 +267,9 @@ Plays describe a sequence of tasks to execute on a set of hosts and are defined 
 ---
 
 ## Q & A
+
+Note:
+Time to dive into `ansible-playbooks` repo.
 
 ---
 
